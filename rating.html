@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.rating-widget-stars a {
+    text-indent: -9999px;
+    width: 21px;
+    border-right: 1px solid #fff;
+    height: 18px;
+    border-radius: 5px;
+    display: block;
+    float: left;
+    text-decoration: none;
+}
+.level-0{
+	    background: #cbcbcb;
+    min-width: 20px;
+}
+.level-1 {
+    background: #cb202d;
+}
+.level-2 {
+    background: blue;
+}
+.level-3 {
+    background: #ff7800;
+}
+.level-4 {
+    background: #ffba00;
+}
+.level-5 {
+    background: #edd614;
+}
+.level-6 {
+    background: #9acd32;
+}
+.level-7 {
+    background: #5ba829;
+}
+.level-8 {
+    background: #3f7e00;
+}
+.level-9 {
+    background: #305d02;
+}
+</style>
+
+</head>
+
+<body>
+<script type="text/javascript" src="jquery-min.js"> </script>
+<script type="text/javascript">
+var varSetOnClick = false;
+$(document).ready(function (){
+$('.undone').on('hover', function(event) {
+	 ratingready();
+	});
+$('.undone').click(
+			function() {
+				varSetOnClick = true;
+				var rel_att = $(this).attr('aria-label');
+				$('#dprtng').html(rel_att);
+				
+			});
+});
+
+function ratingready(){
+$('.undone').hover(
+			function mouseInHandler() {
+				varSetOnClick = false;
+				var rel_att = $(this).attr('aria-label');
+				var id = $(this).parent().attr('id');
+				$('#'+id+'dprtng').html(rel_att);
+				$(this).prevAll().andSelf().removeClass('level-0');
+				$(this).prevAll().andSelf().addClass('level-1');
+				
+				$(this).nextAll().removeClass('level-1');
+				$(this).nextAll().addClass('level-0');
+			},
+            function mouseOutHandler() {
+            	if (!varSetOnClick) {
+                var rel_att = 0;
+				var id = $(this).parent().attr('id');
+				$('#'+id+'dprtng').html(rel_att);
+				$(this).prevAll().andSelf().removeClass('level-1');
+				$(this).prevAll().andSelf().addClass('level-0');
+			}
+			});
+
+}
+</script>
+
+<p>Hygenic<p>
+<div class="rating-widget-stars" id='hygenic'>
+	<a aria-label="1.0" href="#" class="undone level-0">&nbsp;</a>
+	<a aria-label="1.5" href="#" class="undone level-0">&nbsp;</a>
+	<a aria-label="2.0" href="#" class="undone level-0">&nbsp;</a>
+	<a aria-label="2.5" href="#" class="undone level-0">&nbsp;</a>
+	<a aria-label="3.0" href="#" class="undone level-0">&nbsp;</a>
+	<a aria-label="3.5" href="#" class="undone level-0">&nbsp;</a>
+	<a aria-label="4.0" href="#" class="undone level-0">&nbsp;</a>
+	<a aria-label="4.5" href="#" class="undone level-0">&nbsp;</a>
+	<a aria-label="5.0" href="#" class="undone level-0">&nbsp;</a>
+</div> <span>(<span id="hygenicdprtng">0</span>)</span>
+
+<p>Cleanness<p>
+<div class="rating-widget-stars" id='cleanness'>
+    <a aria-label="1.0" href="#" class="undone level-0">&nbsp;</a>
+	<a aria-label="1.5" href="#" class="undone level-0">&nbsp;</a>
+	<a aria-label="2.0" href="#" class="undone level-0">&nbsp;</a>
+	<a aria-label="2.5" href="#" class="undone level-0">&nbsp;</a>
+	<a aria-label="3.0" href="#" class="undone level-0">&nbsp;</a>
+	<a aria-label="3.5" href="#" class="undone level-0">&nbsp;</a>
+	<a aria-label="4.0" href="#" class="undone level-0">&nbsp;</a>
+	<a aria-label="4.5" href="#" class="undone level-0">&nbsp;</a>
+	<a aria-label="5.0" href="#" class="undone level-0">&nbsp;</a>
+</div> <span>(<span id="cleannessdprtng">0</span>)</span>
+
+<p>Quality<p>
+<div class="rating-widget-stars" id='quality'>
+<a aria-label="1.0" href="#" class="undone level-0">&nbsp;</a>
+	<a aria-label="1.5" href="#" class="undone level-0">&nbsp;</a>
+	<a aria-label="2.0" href="#" class="undone level-0">&nbsp;</a>
+	<a aria-label="2.5" href="#" class="undone level-0">&nbsp;</a>
+	<a aria-label="3.0" href="#" class="undone level-0">&nbsp;</a>
+	<a aria-label="3.5" href="#" class="undone level-0">&nbsp;</a>
+	<a aria-label="4.0" href="#" class="undone level-0">&nbsp;</a>
+	<a aria-label="4.5" href="#" class="undone level-0">&nbsp;</a>
+	<a aria-label="5.0" href="#" class="undone level-0">&nbsp;</a>
+</div> <span>(<span id="qualitydprtng">0</span>)</span>
+
+</body>
+</html>
